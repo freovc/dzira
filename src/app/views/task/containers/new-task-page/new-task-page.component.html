@@ -1,0 +1,16 @@
+<app-new-task
+  [creatingTask]="creatingTask$ | async"
+  [creatingTaskFail]="creatingTaskFail$ | async"
+  [creatingTaskSuccess]="creatingTaskSuccess$ | async"
+  [newTask]="newTask$ | async"
+  [users]="users$ | async"
+  [projects]="projects$ | async"
+  [isCreateForm]="true"
+
+  (createTask)="createTask()"
+  (updateTask)="updateTask()"
+  (synchronizeForm)="synchronizeForm($event)"
+>
+</app-new-task>
+
+

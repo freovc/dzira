@@ -17,6 +17,7 @@ import { AuthEffects } from './store/auth/auth.effects';
 import { Error404Component } from './views/error404.component';
 import { ProjectModule } from './views/project/project.module';
 import { UsersModule } from './views/users/users.module';
+import { TaskModule } from './views/task/task.module';
 
 @NgModule({
   declarations: [
@@ -27,13 +28,17 @@ import { UsersModule } from './views/users/users.module';
     Error404Component,
   ],
   imports: [
-    ProjectModule,
     BrowserModule,
     BrowserAnimationsModule,
-    UsersModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([AppEffects, AuthEffects]),
+
+    // app feature
+
+    TaskModule,
+    ProjectModule,
+    UsersModule,
     AppRouting,
   ],
   providers: [],

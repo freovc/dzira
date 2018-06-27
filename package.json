@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "test_start": "concurrently \"npm run jss\" \"npm run start\""
+    "ss": "concurrently \"npm run jss\" \"npm run start\""
   },
   "private": true,
   "dependencies": {

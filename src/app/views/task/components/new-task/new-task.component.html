@@ -1,0 +1,48 @@
+<section class="box box--static box--static--create center--static">
+  <header>
+    <h2 class="box__title">
+      {{isCreateForm ? 'Create a new task' : 'Update task'}}
+    </h2>
+  </header>
+  <div class="box--static__forms--nophoto no-error" [formGroup]="form">
+    <label for="taskTitle" class="form__text form__text--static ">Title:</label>
+    <input id="taskTitle" formControlName="title"  type="text" name="taskTitle" placeholder="Sample task title" class="form__elem">
+    <label for="taskDesc" class="form__text form__text--static">Description:</label>
+    <textarea  id="taskDesc" formControlName="description"  type="text" name="taskDesc" placeholder="Sample task description" class="form__elem"></textarea>
+
+
+    <label for="chooseProject" class="form__text form__text--static">Project:</label>
+    <select formControlName="project" id="chooseProject" type="text" name="chooseProject" class="form__elem">
+      <option selected disabled [value]="null">Select project </option>
+      <option *ngFor="let project of projects" [value]="project.id">{{project.title}}</option>
+    </select>
+    <label for="statusTask" class="form__text form__text--static">Status:</label>
+    <select formControlName="status"id="statusTask" type="text" name="statusTask" class="form__elem">
+      <option *ngFor="let projectStatus of projectStatuses" [value]="projectStatus.k">{{projectStatus.v}}</option>
+    </select>
+    <label for="memberTask" class="form__text form__text--static">Member:</label>
+    <select formControlName="member" id="memberTask" type="text" name="memberTask" class="form__elem">
+      <option selected disabled [value]="null">Assign user for this task</option>
+      <option *ngFor="let user of users" [value]="user.id">{{user.fullName}}</option>
+    </select>
+
+
+    <p *ngIf="creatingTaskFail" class="text-center text-danger">
+      Can not crete new project.
+    </p>
+    <p *ngIf="updatingTaskFail" class="text-center text-danger">
+      Can not crete new project.
+    </p>
+
+
+
+  </div>
+  <button *ngIf="isCreateForm" class="btn btn--modal btn--static" (click)="onCreateTask()">
+    <span [appSpinning]="creatingTask">Create task</span>
+  </button>
+  <button *ngIf="!isCreateForm" class="btn btn--modal btn--static" (click)="onUpdateTask()">
+    <span [appSpinning]="updatingTask">Update</span>
+  </button>
+
+
+</section>
