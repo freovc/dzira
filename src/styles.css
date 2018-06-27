@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+:not(form).ng-touched.ng-invalid, .input__invalid {
+  border: solid 1px indianred;
+}
+.box--content.ng-touched.ng-invalid {
+  border: solid 1px transparent;
+}
+.box--static__forms.ng-touched.ng-invalid, .input__invalid {
+  border: solid 1px transparent !important;
+}
+
+.ng-dirty.ng-touched.ng-invalid + .err {
+  display: inline;
+  color: indianred;
+}
+.ngx-dorpdown-container .ngx-dropdown-button {
+  border: none !important;
+}

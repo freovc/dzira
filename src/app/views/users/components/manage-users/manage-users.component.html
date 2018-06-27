@@ -1,0 +1,98 @@
+<app-dialog
+  *ngIf="deleteModalVisible"
+  [deletingUser]="deletingUser"
+  [complete]="deleteUserComplete"
+  completeMsg="User deleted"
+  (cancel)="hideDeleteUserModal.emit()"
+  (confirm)="deleteUser.emit()"
+></app-dialog>
+
+<app-modal
+  *ngIf="editModalVisible"
+  showAs="info"
+  (backdropClick)="hideEditUserModal()"
+  [modalState]="modalAnimationState"
+>
+  <app-user-update-modal
+    [user]="selectedUser"
+    [loading]="loading"
+    [loadingSuccess]="loadingSuccess"
+    [loadingFail]="loadingFail"
+    [userRoles]="userRoles"
+    [updating]="loading"
+    (closeModal)="hideEditUserModal()"
+    (updateUser)="updateUser.emit()"
+    (synchronizeFormWithStore)="synchronizeFormWithStore.emit($event)"
+
+  ></app-user-update-modal>
+</app-modal>
+<app-modal
+  (backdropClick)="closeEditPassword($event)"
+  *ngIf="editPasswordVisible"
+>
+  <app-user-update-password
+    [updatingPassword]="updatingPassword"
+    [updatingPasswordSuccess]="updatingPasswordSuccess"
+    [updatingPasswordFail]="updatingPasswordFail"
+    [user]="selectedUser"
+    (updatePassword)="updatePassword.emit($event)"
+
+    (closeModal)="closeEditPassword($event)"
+    (setNewPassword)="setNewPassword.emit($event)"
+    (setOldPassword)="setOldPassword.emit($event)"
+  ></app-user-update-password>
+</app-modal>
+
+<section class="box box--static center">
+  <header>
+    <h2 class="box__title">Manage Users Account</h2>
+  </header>
+  <div class="table-info" style="position: relative;">
+
+    <div class="table-responsive">
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th colspan="3" class="text-right" style="background-color: white;">
+            <button class="btn btn-primary" (click)="createUser()">Create user
+            </button>
+          </th>
+        </tr>
+        <tr>
+          <th scope="col">NAME AND SURNAME</th>
+          <th scope="col">EMAIL</th>
+          <th scope="col">action</th>
+        </tr>
+        </thead>
+
+        <tbody *ngIf="!loadingUsers; else loadingTemplate">
+
+        <tr *ngFor="let user of users" (click)="selectUser.emit(user)">
+          <td>{{user.fullName}}</td>
+          <td>{{user.email}}</td>
+          <td>
+            <button class="btn--edit" (click)="editUser(user)">
+              <i class="far fa-edit"></i>
+            </button>
+            <button class="btn--password" (click)="editPassword(user)">
+              <i class="fas fa-unlock-alt"></i>
+            </button>
+            <button
+              class="btn--delete" (click)="showDeleteUserModal.emit(user)"
+            >
+              <i class="far fa-trash-alt"></i>
+            </button>
+          </td>
+        </tr>
+
+        </tbody>
+        <ng-template #loadingTemplate>
+          <app-loading-indicator></app-loading-indicator>
+        </ng-template>
+
+      </table>
+    </div>
+  </div>
+</section>
+

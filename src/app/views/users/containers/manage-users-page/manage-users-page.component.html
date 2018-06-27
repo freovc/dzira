@@ -1,0 +1,32 @@
+<app-manage-users
+  [users]="users$ | async"
+  [userRoles]="userRoles$ | async"
+  [selectedUser]="selectedUser$ | async"
+  [loadingUsers]="usersLoading$ | async"
+  [deleteModalVisible]="deleteUserModalVisible$ | async"
+  [deleteUserModalVisible]="userEditModalDialogVisible$ | async"
+
+  [deletingUser]="deletingUser$ | async"
+  [deleteUserComplete]="deleteUserComplete$ | async"
+
+  [loading]="loading$  | async"
+  [loadingSuccess]="loadingSuccess$  | async"
+  [loadingFail]="loadingFail$  | async"
+
+  [updatingPassword]="updatingPassword$ | async"
+  [updatingPasswordSuccess]="updatingPasswordSuccess$ | async"
+  [updatingPasswordFail]="updatingPasswordFail$ | async"
+
+  (showDeleteUserModal)="showDeleteUserModal($event)"
+  (hideDeleteUserModal)="hideDeleteUserModal()"
+  (showUserEditModal)="showUserEditModalDialog($event)"
+  (deleteUser)="deleteUser()"
+  (selectUser)="selectUser($event)"
+  (synchronizeFormWithStore)="synchronizeFormWithStore($event)"
+  (updateUser)="updateUser()"
+  (updatePassword)="updatePassword()"
+  (clearLoadingState)="clearLoadingState()"
+  (setNewPassword)="setNewPassword($event)"
+  (setOldPassword)="setOldPassword($event)"
+
+></app-manage-users>

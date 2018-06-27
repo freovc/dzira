@@ -1,0 +1,24 @@
+<app-backdrop [showAs]="showAs">
+  <section
+    *ngIf="dialogVisible" #dialog [@modalState]="modalState" class="box box--delete box--modal center--absolute"
+  >
+    <header>
+      <div class="box--modal__title">
+        <button class="btn--delete btn--delete--delete-box" (click)="confirm.emit()">
+          <i class="far fa-trash-alt"></i>
+        </button>
+        <h2 class="box__title box--modal__title-text">
+          {{header}} </h2>
+      </div>
+      <i (click)="cancelDelete()" class="glyphicon glyphicon-remove-circle box__icon-close"></i>
+    </header>
+    <div class="box--content">
+      <p class="box--text">
+        {{complete ? completeMsg : message}} </p>
+    </div>
+
+    <button #deleteButton class="btn btn--modal" (click)="confirm.emit()" [disabled]="complete">
+      <span [appSpinning]="deletingUser" dotColor="#ffffff">Delete user</span>
+    </button>
+  </section>
+</app-backdrop>

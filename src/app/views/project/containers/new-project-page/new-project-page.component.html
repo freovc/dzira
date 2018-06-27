@@ -1,0 +1,8 @@
+<app-new-project
+  [users]="users$ | async"
+  [creatingProject]="creatingProject$ | async"
+  [creatingProjectFail]="creatingProjectFail$ | async"
+  [creatingProjectSuccess]="creatingProjectSuccess$ | async"
+  (createProject)="createProject()"
+  (syncForm)="syncForm($event)"
+></app-new-project>

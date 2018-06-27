@@ -1,0 +1,81 @@
+<menu data-hidden='0' class="menu-side">
+  <div class="menu-side__brand">
+    <img class="logo--large center" src="assets/images/logo.png" alt="">
+    <img class="logo--small" src="assets/images/favicon.png" alt="">
+  </div>
+  <a routerLink="users/mywork" routerLinkActive="menuItem-active">
+    <div class="menu-side__link">
+      <img src="assets/images/icon-mywork.png" class="menu-side__icon" alt="My work">
+      <p>My work</p>
+    </div>
+  </a>
+  <a href="taskboard.html">
+    <div class="menu-side__link">
+      <img src="assets/images/icon-taskboard.png" class="menu-side__icon" alt="Task board">
+      <p>Task board</p>
+    </div>
+  </a>
+  <a href="workbyperson.html">
+    <div class="menu-side__link">
+      <img src="assets/images/icon-workbyperson.png" class="menu-side__icon" alt="Work by person">
+      <p>Work by person</p>
+    </div>
+  </a>
+  <a href="backlog.html">
+    <div class="menu-side__link">
+      <img src="assets/images/icon-backlog.png" class="menu-side__icon" alt="Backlog">
+      <p>Backlog</p>
+    </div>
+  </a>
+  <a role="button" data-toggle="collapse" href="#projects-option" aria-expanded="false" aria-controls="projects-option">
+    <div class="menu-side__link drop-down-link" data-toggle='1'>
+      <img src="assets/images/icon-project.png" class="menu-side__icon" alt="Projects" [ngClass]="{'active-link': routeOf(['projects/new-project', 'projects/manage-projects'])}">
+      <p>Projects</p>
+    </div>
+  </a>
+  <div class="collapse" id="projects-option">
+    <a routerLink="/projects/new-project" routerLinkActive="menuItem-active">
+      <div class="menu-side__link link-collapse link-collapse1">
+        <img src="assets/images/icon-createproject.png" class="menu-side__icon" alt="Create project">
+        <p>Create project</p>
+      </div>
+    </a>
+    <a routerLink="projects/manage-projects" routerLinkActive="menuItem-active">
+      <div class="menu-side__link link-collapse">
+        <img src="assets/images/icon-manageprojects.png" class="menu-side__icon" alt="Manage projects">
+        <p>Manage projects</p>
+      </div>
+    </a>
+  </div>
+  <a role="button" data-toggle="collapse" href="#users-option" aria-expanded="false" aria-controls="orders_menu">
+    <span data-toggle="tooltip" title="Tooltip on bottom" data-placement="right">
+      <div
+        class="menu-side__link drop-down-link" data-toggle='0' [ngClass]="{'active-link': routeOf(['users/create', 'users/manageUsers'])}"
+      >
+        <img src="assets/images/icon-user.png" class="menu-side__icon" alt="orders">
+        <p>Users</p>
+      </div>
+    </span>
+  </a>
+  <div class="collapse" id="users-option">
+    <a routerLink="users/create" routerLinkActive="menuItem-active">
+      <div class="menu-side__link link-collapse active-link--collapse link-collapse1">
+        <img src="assets/images/icon-createauser.png" class="menu-side__icon" alt="Create a user">
+        <p>Create a user</p>
+      </div>
+    </a>
+    <a routerLink="/users/manageUsers" routerLinkActive="menuItem-active">
+      <div class="menu-side__link link-collapse">
+        <img src="assets/images/icon-manageusers.png" class="menu-side__icon" alt="Manage users">
+        <p>Manage users</p>
+      </div>
+    </a>
+  </div>
+
+  <a href="addtask.html">
+    <div class="menu-side__link">
+      <img src="assets/images/icon-addtask.png" class="menu-side__icon menu-side__icon--margin" alt="Add task">
+      <p>Add task</p>
+    </div>
+  </a>
+</menu>

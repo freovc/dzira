@@ -1,0 +1,38 @@
+<div class="menu-top">
+  <div class="menu-top__toggle">
+    <i class="glyphicon menu-side__glyphicon glyphicon-menu-hamburger menu-side__open-icon"></i>
+    <i class="glyphicon menu-side__glyphicon glyphicon-remove-circle menu-side__close-icon"></i>
+  </div>
+  <div>
+    <h1 class="menu-top__page-title">USERS</h1>
+    <i title="Logout" class="fas fa-power-off" (click)="logout()"></i>
+    <ul class="nav nav-tabs position">
+      <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <img src="assets/images/avatar.png" alt="avatar">
+          <span *ngIf="(user$ | async) as user">
+          {{user.fullName}}
+        </span>
+          <span *ngIf="!(isLogged$ | async)">
+          <span>Not logged</span>
+        </span>
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <ng-container *ngIf="isLogged$ | async; else notLogged">
+            <li><a href="#">Settings</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a (click)="logout()">Logout</a></li>
+          </ng-container>
+
+          <ng-template #notLogged>
+            <li><a routerLink="/users/authenticate" href="#">Login</a></li>
+            <li><a href="javascript:void(0);">Register</a></li>
+          </ng-template>
+        </ul>
+      </li>
+    </ul>
+    <button *ngIf="isLogged$ | async" class="btn btn--top">Create project
+    </button>
+  </div>
+</div>

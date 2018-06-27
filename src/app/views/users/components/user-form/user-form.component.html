@@ -1,0 +1,45 @@
+<section class="box box--static box--static--create center">
+  <header>
+    <h2 class="box__title">Create a new user</h2>
+  </header>
+  <div class="box--static__forms" [formGroup]="userForm">
+    <label for="nameUser" class="form__text form__text--static ">Name and
+      surname:</label>
+    <input id="nameUser" autocomplete="name" formControlName="fullName" type="text" placeholder="Klaudia Polan" class="form__elem">
+    <label for="emailUser" class="form__text form__text--static ">Email:</label>
+    <input id="emailUser" autocomplete="email" formControlName="email" type="text" placeholder="k.polan95@gmail.com" class="form__elem">
+    <label for="passwordUser" class="form__text form__text--static has-error">Password:</label>
+    <input id="passwordUser" autocomplete="new-password" formControlName="password" [ngClass]="{'input__invalid': passwordsError()}" type="password" placeholder="Please write here..." class="form__elem">
+    <label for="repeatPassword" class="form__text form__text--static ">Repeat
+      password:</label>
+    <input id="repeatPassword" autocomplete="new-password" formControlName="repeatPassword" [ngClass]="{'input__invalid': passwordsError()}" type="password" placeholder="Please write here..." class="form__elem">
+
+    <h3 class="form__text form__text--static "> Add photo: </h3>
+    <label for="photoUser" class="form__text upload-photo__label ">Upload</label>
+    <input id="photoUser" (change)="handlePhoto($event)" type="file" placeholder="Upload" class="form__elem upload-photo">
+
+
+    <label for="roleUser" class="form__text form__text--static ">Role:</label>
+    <select formControlName="role" id="roleUser" type="text" class="form__elem">
+      <option disabled selected value> -- select role --</option>
+      <option *ngFor="let role of userRoles" [value]="role.id">{{role.name}}
+      </option>
+    </select>
+    <section class="errors-area alert alert-danger list-unstyled">
+
+      <span *ngIf="formHelper.controlInvalid('fullName')">Name is required.</span>
+      <span *ngIf="formHelper.controlInvalid('email')">Invalid email.</span>
+      <span *ngIf="formHelper.controlInvalid('password')">Password is required</span>
+      <span *ngIf="formHelper.controlInvalid('repeatPassword')">Repeat password is required</span>
+      <span *ngIf="formHelper.controlInvalid('role')">Select role</span>
+      <span *ngIf="passwordsError()">Passwords are not equals.</span>
+
+    </section>
+
+  </div>
+  <button class="btn btn--modal btn--static" (click)="onCreateUser()">
+    <span [appSpinning]="pending">Add user</span>
+  </button>
+
+
+</section>

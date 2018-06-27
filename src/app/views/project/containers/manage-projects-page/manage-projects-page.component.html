@@ -1,0 +1,11 @@
+<app-manage-projects
+  [LoadingProjects]="LoadingProjects$ | async"
+  [LoadingProjectsSuccess]="LoadingProjectsSuccess$ | async"
+  [LoadingProjectsFail]="LoadingProjectsFail$ | async"
+  [projects]="projects$ | async"
+
+  (selectProject)="selectProject($event)"
+  (deleteProject)="deleteProject($event)"
+></app-manage-projects>
+
+

@@ -1,0 +1,32 @@
+<section class="box box--static box--static--create center--static">
+  <header>
+    <h2 class="box__title">Login</h2>
+  </header>
+  <div>
+    <!-- TODO remove this later-->
+    <p class="text-center text-muted">
+      Try to login with any username, password is userId, available user id 1,
+      2, 3 </p>
+    <form #form>
+      <label for="projectTitle" class="form__text">User name:</label>
+      <input id="projectTitle" required [(ngModel)]="name" name="name" type="text" name="projectTitle" placeholder="Please write here..." class="form__elem">
+      <label for="projectDesc" class="form__text">Password:</label>
+      <input id="projectDesc" required [(ngModel)]="password" name="password" type="password" placeholder="Please provide password..." class="form__elem">
+      <p
+        [@flip] class="text-danger text-center" *ngIf="authFail$ | async"
+      >
+        <span class="fa fa-2x fa-warning text-capitalize">&nbsp;</span>
+        <span class="text-capitalize">Login faild. </span>
+      </p>
+    </form>
+  </div>
+  <section class="box-static__footer">
+    <!--<button class="btn btn&#45;&#45;modal  btn&#45;&#45;modal__inline">Create new</button>-->
+    <button class="btn btn--modal  btn--modal__inline" (click)="login(form)">
+      <span [appSpinning]="(loading$ | async) || false">Login</span>
+    </button>
+  </section>
+
+
+</section>
+

@@ -1,0 +1,200 @@
+{
+  "usersRole": [
+    {
+      "id": 0,
+      "name": "User"
+    },
+    {
+      "id": 1,
+      "name": "Project Manager"
+    },
+    {
+      "id": 2,
+      "name": "Admin"
+    }
+  ],
+  "users": [
+    {
+      "fullName": "ffddqqq123",
+      "email": "fff@fd",
+      "password": "aaaaaaaa",
+      "repeatPassword": "f",
+      "photo": "",
+      "role": "2",
+      "id": 1,
+      "oldPassword": "11"
+    },
+    {
+      "fullName": "Nowy",
+      "email": "fdsafd@fdsf",
+      "password": "f",
+      "repeatPassword": "f",
+      "photo": "",
+      "role": "0",
+      "id": 4
+    },
+    {
+      "fullName": "fdsafsadf",
+      "email": "fsdf@fd",
+      "password": "",
+      "repeatPassword": "f",
+      "photo": "",
+      "role": "0",
+      "id": 6,
+      "oldPassword": "aaaaaa"
+    },
+    {
+      "oldPassword": "fdsff",
+      "password": "qqq",
+      "id": 7,
+      "fullName": "poprawiam",
+      "email": "poprawifdfd@fd",
+      "photo": null,
+      "role": "1"
+    },
+    {
+      "fullName": "new user afte",
+      "email": "fjdsal@jf",
+      "password": "fff",
+      "repeatPassword": "fff",
+      "photo": "",
+      "role": "1",
+      "id": 8
+    },
+    {
+      "fullName": "jfdaskl",
+      "email": "fjdkasdl@fjdks",
+      "password": "aaaaaaaa",
+      "repeatPassword": "aaaaaaaa",
+      "photo": "",
+      "role": "1",
+      "id": 9
+    },
+    {
+      "fullName": "f",
+      "email": "fsdafsd@fds",
+      "password": "ffffffff",
+      "repeatPassword": "ffffffff",
+      "photo": "",
+      "role": "0",
+      "id": 10
+    }
+  ],
+  "authorize": [
+    {
+      "fullName": "Registered1",
+      "email": "jfdsa@jk",
+      "photo": "",
+      "role": "admin",
+      "id": 1
+    }
+  ],
+  "logout": {
+    "status": "logout"
+  },
+  "projects": [
+    {
+      "title": "fdsa",
+      "description": "fasfsda",
+      "startDate": "2018-06-13",
+      "endDate": "",
+      "members": [
+        4,
+        6,
+        1
+      ],
+      "id": 1
+    },
+    {
+      "title": "fdsfd",
+      "description": "fdsfds",
+      "startDate": "",
+      "endDate": "",
+      "members": [],
+      "id": 2
+    },
+    {
+      "title": "dfssaf",
+      "description": "fdsafsda",
+      "startDate": "",
+      "endDate": "",
+      "members": [],
+      "id": 4
+    },
+    {
+      "title": "updating2",
+      "description": "2 members now",
+      "startDate": "",
+      "endDate": "",
+      "members": [
+        {
+          "fullName": "ffddqqq123",
+          "email": "fff@fd",
+          "password": "aaaaaaaa",
+          "repeatPassword": "f",
+          "photo": "",
+          "role": "2",
+          "id": 1,
+          "oldPassword": "11"
+        },
+        {
+          "fullName": "Nowy",
+          "email": "fdsafd@fdsf",
+          "password": "f",
+          "repeatPassword": "f",
+          "photo": "",
+          "role": "0",
+          "id": 4
+        }
+      ],
+      "id": 5
+    },
+    {
+      "title": "without validation",
+      "description": "check if it is disabled of something\n4 users",
+      "startDate": "2018-06-07",
+      "endDate": "2018-06-05",
+      "members": [
+        {
+          "fullName": "ffddqqq123",
+          "email": "fff@fd",
+          "password": "aaaaaaaa",
+          "repeatPassword": "f",
+          "photo": "",
+          "role": "2",
+          "id": 1,
+          "oldPassword": "11"
+        },
+        {
+          "fullName": "fdsafsadf",
+          "email": "fsdf@fd",
+          "password": "",
+          "repeatPassword": "f",
+          "photo": "",
+          "role": "0",
+          "id": 6,
+          "oldPassword": "aaaaaa"
+        },
+        {
+          "oldPassword": "fdsff",
+          "password": "qqq",
+          "id": 7,
+          "fullName": "poprawiam",
+          "email": "poprawifdfd@fd",
+          "photo": null,
+          "role": "1"
+        },
+        {
+          "fullName": "new user afte",
+          "email": "fjdsal@jf",
+          "password": "fff",
+          "repeatPassword": "fff",
+          "photo": "",
+          "role": "1",
+          "id": 8
+        }
+      ],
+      "id": 7
+    }
+  ]
+}

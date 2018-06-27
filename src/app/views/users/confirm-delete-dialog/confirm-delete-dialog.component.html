@@ -1,0 +1,24 @@
+<app-backdrop showAs="delete" (backdropClick)="closeModal()">
+  <section
+    [@modalState]="modalState" class="box box--delete box--modal center--absolute" (click)="sectionClick($event)"
+  >
+    <header>
+      <div class="box--modal__title">
+        <button class="btn--delete btn--delete--delete-box">
+          <i class="far fa-trash-alt"></i>
+        </button>
+        <h2 class="box__title box--modal__title-text">Are you sure you want to
+          do it?</h2>
+      </div>
+      <i (click)="closeModal()" class="glyphicon glyphicon-remove-circle box__icon-close"></i>
+    </header>
+    <div class="box--content">
+      <p class="box--text">{{error || 'You will not be able to undo your
+        changes.'}}</p>
+      <a [routerLink]="['/users/manageUsers', {outlet: {modal: null}, deleted: true}]">fjdalkf</a>
+    </div>
+    <button #deleteButton class="btn btn--modal" (click)="deleteUser()">
+      <span [appSpinning]="deleting" dotColor="#ffffff">Delete user</span>
+    </button>
+  </section>
+</app-backdrop>

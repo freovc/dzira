@@ -1,0 +1,7 @@
+<app-backdrop [showAs]="showAs" (backdropClick)="backdropClick.emit() ">
+  <section [@modalState]="modalState" class="box box--edit box--modal center--absolute" (click)="modalClick($event)">
+    <ng-content>
+
+    </ng-content>
+  </section>
+</app-backdrop>

@@ -1,0 +1,41 @@
+<section class="box box--static center box--min-size">
+  <header>
+    <h2 class="box__title">Manage projects</h2>
+  </header>
+  <div class="table-info" style="position: relative;">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">name of project</th>
+          <th scope="col">action</th>
+        </tr>
+        </thead>
+        <tbody *ngIf="!LoadingProjects; else loadingTemplate">
+        <tr *ngFor="let project of projects">
+          <td><h5>{{project.title}}: <small>{{project.description}}</small></h5></td>
+          <td class="text-center">
+            <button class="btn--edit" (click)="editProject(project)">
+              <i class="far fa-edit"></i>
+            </button>
+            <button class="btn--delete" (click)="deleteProject.emit(project)">
+              <i class="far fa-trash-alt"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+        <tbody>
+        <ng-template #loadingTemplate>
+          <app-loading-indicator></app-loading-indicator>
+        </ng-template>
+        </tbody>
+        <tr *ngIf="LoadingProjectsFail" class="alert alert-danger">
+          <td colspan="2" class="text-center text-danger">
+            Error occurs. Can not load any data.
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</section>
+<router-outlet name="modal"></router-outlet>

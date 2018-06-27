@@ -1,0 +1,15 @@
+<app-edit-project
+  *ngIf="formProjectLoadSuccess$ | async"
+  [users]="users$ | async"
+  [project]="project$ | async"
+  [updatingProjects]="updatingProjects$ | async"
+  [updatingProjectsSuccess]="updatingProjectsSuccess$ | async"
+  [updatingProjectsFail]="updatingProjectsFail$ | async"
+  (synchronizeFormProject)="synchronizeFormProject($event)"
+  (updateProject)="updateProject()"
+  (deleteProject)="deleteProject()"
+>
+
+</app-edit-project>
+{{formProjectLoadSuccess$ | async | json}}
+{{project$ | async | json}}

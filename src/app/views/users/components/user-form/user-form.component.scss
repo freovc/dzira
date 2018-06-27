@@ -1,0 +1,19 @@
+.errors-area {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-content: center;
+  align-items: left;
+
+  max-width: 90vw;
+  font-size: 80%;
+  padding: 0;
+  padding-left: 40px;
+  border: none;
+  span:first-child {
+    margin-top: 20px;
+  }
+  span:last-child {
+    margin-bottom: 20px;
+  }
+}

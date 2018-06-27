@@ -1,0 +1,45 @@
+
+<app-modal [showAs]="'info'" (backdropClick)="closeModal()">
+  <header>
+    <div class="box--modal__title">
+      <button class="btn--edit btn--edit--edit-box">
+        <i class="far fa-edit"></i>
+      </button>
+      <h2 class="box__title box--modal__title-text">Edit a project</h2>
+    </div>
+    <i class="glyphicon glyphicon-remove-circle box__icon-close" (click)="closeModal()"></i>
+  </header>
+  <div class="box--content" [formGroup]="form">
+    <label for="projectTitle" class="form__text">Title:</label>
+    <input id="projectTitle" formControlName="title" type="text" name="projectTitle" placeholder="Sample project title" class="form__elem">
+    <label for="projectDesc" class="form__text">Description:</label>
+    <textarea  id="projectDesc" formControlName="description"type="text" name="projectDesc" placeholder="Sample project description" class="form__elem"></textarea>
+
+    <label for="projectDate" class="form__text">Date:</label>
+    <input id="projectDate" formControlName="startDate" type="date" name="projectTitle" class="form__elem">
+    <input id="projectDate2" formControlName="endDate" type="date" name="projectTitle" class="form__elem">
+
+    <label for="projectMembers" class="form__text">Members:</label>
+    <div class="project__members">
+      <ngx-select-dropdown
+        id="projectMembers"
+        type="text"
+        name="projectMembers"
+        class="form__elem"
+        [multiple]="true"
+        [options]="users"
+        [config]="dropdownConfig"
+        [(value)]="members"
+      >
+
+
+      </ngx-select-dropdown>
+    </div>
+
+
+  </div>
+  <button class="btn btn--modal">
+    <span [appSpinning]="updatingProjects" (click)="updateProject.emit()">Update</span>
+  </button>
+
+</app-modal>

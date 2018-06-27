@@ -1,0 +1,43 @@
+<section class="box box--static box--static--create center--static">
+  <header>
+    <h2 class="box__title">Create a new project</h2>
+  </header>
+  <div class="box--static__forms--nophoto" [formGroup]="form">
+    <label for="projectTitle" class="form__text">Title:</label>
+    <input id="projectTitle" formControlName="title" type="text" name="projectTitle" placeholder="Please write here..." class="form__elem">
+    <label for="projectDesc" class="form__text">Description:</label>
+    <textarea  id="projectDesc" formControlName="description" type="text" name="projectDesc" placeholder="Please write here..." class="form__elem"></textarea>
+    <label  class="form__text">Date:</label>
+    <input id="projectDateStart" formControlName="startDate" type="date" name="projectTitle" class="form__elem">
+    <input id="projectDateEnd" formControlName="endDate" type="date" name="projectTitle" class="form__elem">
+
+    <label for="projectMembers" class="form__text">Members:</label>
+    <div class="project__members">
+      <ngx-select-dropdown
+        id="projectMembers"
+        type="text"
+        name="projectMembers"
+        class="form__elem"
+        [multiple]="true"
+        [options]="users"
+        [config]="dropdownConfig"
+        [(value)]="members"
+      >
+
+
+      </ngx-select-dropdown>
+
+
+    </div>
+
+
+
+
+
+  </div>
+  <button class="btn btn--modal btn--static" (click)="submit()">
+    <span [appSpinning]="creatingProject">Add project</span>
+  </button>
+
+
+</section>

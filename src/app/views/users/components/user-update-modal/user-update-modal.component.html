@@ -1,0 +1,34 @@
+<header>
+  <div class="box--modal__title">
+    <button class="btn--edit btn--edit--edit-box">
+      <i class="far fa-edit"></i>
+    </button>
+    <h2 class="box__title box--modal__title-text">Edit a user</h2>
+  </div>
+  <i class="glyphicon glyphicon-remove-circle box__icon-close" (click)="closeModal.emit()"></i>
+</header>
+<div class="box--content" [formGroup]="userForm">
+  <label for="nameUser" class="form__text">Name and surname:</label>
+  <input id="nameUser" formControlName="fullName" type="text" name="nameUser" placeholder="Klaudia Polan" class="form__elem">
+  <label for="emailUser" class="form__text">Email:</label>
+  <input id="emailUser" formControlName="email" type="text" name="emailUser" placeholder="k.polan95@gmail.com" class="form__elem">
+
+
+  <h3 class="form__text"> Add photo: </h3>
+  <label for="photoUser" class="form__text upload-photo__label">Upload</label>
+  <input id="photoUser" type="file" name="photoUser" placeholder="Upload" class="form__elem upload-photo" (change)="handlePhoto($event)">
+
+
+  <label for="roleUser" class="form__text">Role:</label>
+  <select formControlName="role" id="roleUser" type="text" name="roleUser" class="form__elem">
+    <option *ngFor="let role of userRoles" [value]="role.id">{{role.name}}
+    </option>
+  </select>
+  <p @jump class="text-center text-muted" *ngIf="loadingSuccess">User
+    updated</p>
+
+</div>
+
+<button class="btn btn--modal" (click)="onUpdateUser()">
+  <span [appSpinning]="loading">Update User</span>
+</button>

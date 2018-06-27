@@ -1,0 +1,3 @@
+<app-user-form
+  [userRoles]="userRoles$ | async" [creatingUser]="creatingUser$ | async" [creatingUserSuccess]="creatingUserSuccess$ | async" [creatingUserFail]="creatingUserFail$ | async" [creatingUserErrorMsg]="creatingUserErrorMsg$ | async" (createUser)="createUser($event)"
+></app-user-form>
