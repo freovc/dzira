@@ -14,7 +14,11 @@
     </header>
     <div class="box--content">
       <p class="box--text">
-        {{complete ? completeMsg : message}} </p>
+        {{complete ? completeMsg : message}}
+      </p>
+      <p class="text-center text-danger">
+        {{fail ? failMsg : ''}}
+      </p>
     </div>
 
     <button #deleteButton class="btn btn--modal" (click)="confirm.emit()" [disabled]="complete">

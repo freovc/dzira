@@ -18,12 +18,18 @@ export class ManageProjectsPageComponent implements OnInit {
   LoadingProjects$: Observable<boolean>;
   LoadingProjectsSuccess$: Observable<boolean>;
   LoadingProjectsFail$: Observable<boolean>;
+  DeletingProject$: Observable<boolean>;
+  DeletingProjectSuccess$: Observable<boolean>;
+  DeletingProjectFail$: Observable<boolean>;
   projects$: Observable<Array<Project>>;
   constructor(private store: Store<any>) {
     this.LoadingProjects$ = store.select(fromProject.getLoadingProjects);
     this.LoadingProjectsSuccess$ = store.select(fromProject.getLoadingProjectsSuccess);
     this.LoadingProjectsFail$ = store.select(fromProject.getLoadingProjectsFail);
     this.projects$ = store.select(fromProject.getProjects);
+    this.DeletingProject$ = store.select(fromProject.getDeletingProjects);
+    this.DeletingProjectSuccess$ = store.select(fromProject.getDeletingProjectsSuccess);
+    this.DeletingProjectFail$ = store.select(fromProject.getDeletingProjectsFail);
   }
 
   ngOnInit() {
@@ -35,6 +41,9 @@ export class ManageProjectsPageComponent implements OnInit {
   }
   selectProject(project: Project) {
     this.store.dispatch(new SelectProject({project}))
+  }
+  clear() {
+    this.store.dispatch(new ClearAllState());
   }
   deleteProject(project: Project) {
     this.selectProject(project);

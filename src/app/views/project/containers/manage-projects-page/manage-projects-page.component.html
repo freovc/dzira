@@ -3,9 +3,14 @@
   [LoadingProjectsSuccess]="LoadingProjectsSuccess$ | async"
   [LoadingProjectsFail]="LoadingProjectsFail$ | async"
   [projects]="projects$ | async"
+  [deletingProject]="DeletingProject$ | async"
+  [deletingProjectSuccess]="DeletingProjectSuccess$ | async"
+  [deletingProjectFail]="DeletingProjectFail$ | async"
+
 
   (selectProject)="selectProject($event)"
   (deleteProject)="deleteProject($event)"
+  (clearState)="clear()"
 ></app-manage-projects>
 
 

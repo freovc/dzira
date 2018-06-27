@@ -15,16 +15,6 @@
   ],
   "users": [
     {
-      "fullName": "ffddqqq123",
-      "email": "fff@fd",
-      "password": "aaaaaaaa",
-      "repeatPassword": "f",
-      "photo": "",
-      "role": "2",
-      "id": 1,
-      "oldPassword": "11"
-    },
-    {
       "fullName": "Nowy",
       "email": "fdsafd@fdsf",
       "password": "f",
@@ -93,62 +83,6 @@
     "status": "logout"
   },
   "projects": [
-    {
-      "title": "fdsa",
-      "description": "fasfsda",
-      "startDate": "2018-06-13",
-      "endDate": "",
-      "members": [
-        4,
-        6,
-        1
-      ],
-      "id": 1
-    },
-    {
-      "title": "fdsfd",
-      "description": "fdsfds",
-      "startDate": "",
-      "endDate": "",
-      "members": [],
-      "id": 2
-    },
-    {
-      "title": "dfssaf",
-      "description": "fdsafsda",
-      "startDate": "",
-      "endDate": "",
-      "members": [],
-      "id": 4
-    },
-    {
-      "title": "updating2",
-      "description": "2 members now",
-      "startDate": "",
-      "endDate": "",
-      "members": [
-        {
-          "fullName": "ffddqqq123",
-          "email": "fff@fd",
-          "password": "aaaaaaaa",
-          "repeatPassword": "f",
-          "photo": "",
-          "role": "2",
-          "id": 1,
-          "oldPassword": "11"
-        },
-        {
-          "fullName": "Nowy",
-          "email": "fdsafd@fdsf",
-          "password": "f",
-          "repeatPassword": "f",
-          "photo": "",
-          "role": "0",
-          "id": 4
-        }
-      ],
-      "id": 5
-    },
     {
       "title": "without validation",
       "description": "check if it is disabled of something\n4 users",

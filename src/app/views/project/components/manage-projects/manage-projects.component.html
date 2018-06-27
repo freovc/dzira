@@ -18,7 +18,7 @@
             <button class="btn--edit" (click)="editProject(project)">
               <i class="far fa-edit"></i>
             </button>
-            <button class="btn--delete" (click)="deleteProject.emit(project)">
+            <button class="btn--delete" (click)="showDeleteDialog(project)">
               <i class="far fa-trash-alt"></i>
             </button>
           </td>
@@ -39,3 +39,13 @@
   </div>
 </section>
 <router-outlet name="modal"></router-outlet>
+<app-dialog
+  *ngIf="deleteModalVisible"
+  [deletingUser]="deletingProject"
+  [complete]="deletingProjectSuccess"
+  [fail]="deletingProjectFail"
+  failMsg="Can not delete this project!!!"
+  completeMsg="Project deleted"
+  (cancel)="closeDeleteModal()"
+  (confirm)="deleteCallback()"
+></app-dialog>

@@ -9,7 +9,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "test_start": "concurrently \"npm run jss\" \"npm run start\""
   },
   "private": true,
   "dependencies": {
@@ -28,6 +29,7 @@
     "@ngrx/entity": "^6.0.1",
     "@ngrx/store": "^6.0.1",
     "@ngrx/store-devtools": "^6.0.1",
+    "concurrently": "^3.6.0",
     "core-js": "^2.5.4",
     "ngx-animate": "^1.0.1",
     "ngx-select-dropdown": "^0.6.0",

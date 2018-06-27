@@ -26,9 +26,12 @@ export class DialogComponent implements OnInit {
   @Input() header = 'Are you sure you want to do it?';
   @Input() message = 'You will not be able to undo your changes.';
   @Input() showAs: 'delete' | 'info' = 'delete';
+  @Input() fail: boolean;
+  @Input() success: boolean;
   @Input() deletingUser: boolean;
   @Input() complete: boolean;
   @Input() completeMsg: string = 'Request complete';
+  @Input() failMsg = 'Can not do this';
   @Output() confirm = new EventEmitter();
   @Output() cancel = new EventEmitter();
   @ViewChild('dialog') dialog: ElementRef;
@@ -41,7 +44,7 @@ export class DialogComponent implements OnInit {
 
   cancelDelete() {
     this.dialogVisible = false;
-    setTimeout(() => this.cancel.emit(), 400);
+    setTimeout(() => this.cancel.emit(), 200);
   }
 
   confirmDelete() {
