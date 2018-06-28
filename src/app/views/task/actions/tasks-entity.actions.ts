@@ -2,6 +2,9 @@ import { Action } from '@ngrx/store';
 import { Update } from '@ngrx/entity';
 import { Task } from '../models/task.model';
 export enum TasksEntityActionTypes {
+
+  GetBacklogTask = '[TasksEntity] Get Backlog Tasks',
+  GetBacklogTaskSuccess = '[TasksEntity] Get Backlog Task Success',
   LoadTasksEntitys = '[TasksEntity] Load TasksEntitys',
   AddTasksEntity = '[TasksEntity] Add TasksEntity',
   UpsertTasksEntity = '[TasksEntity] Upsert TasksEntity',
@@ -13,7 +16,13 @@ export enum TasksEntityActionTypes {
   DeleteTasksEntitys = '[TasksEntity] Delete TasksEntitys',
   ClearTasksEntitys = '[TasksEntity] Clear TasksEntitys'
 }
-
+export class GetBacklogTask implements Action {
+  readonly type = TasksEntityActionTypes.GetBacklogTask;
+}
+export class GetBacklogTaskSuccess implements Action {
+  readonly type = TasksEntityActionTypes.GetBacklogTaskSuccess;
+  constructor(public payload: {tasks: Task[]}) {}
+}
 export class LoadTasksEntitys implements Action {
   readonly type = TasksEntityActionTypes.LoadTasksEntitys;
 
@@ -82,4 +91,6 @@ export type TasksEntityActions =
  | UpdateTasksEntitys
  | DeleteTasksEntity
  | DeleteTasksEntitys
- | ClearTasksEntitys;
+ | ClearTasksEntitys
+ | GetBacklogTask
+ | GetBacklogTaskSuccess ;

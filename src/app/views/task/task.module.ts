@@ -10,6 +10,8 @@ import { NewTaskPageComponent } from './containers/new-task-page/new-task-page.c
 import { NewTaskComponent } from './components/new-task/new-task.component';
 import { TaskRoutingModule } from './task-routing.module';
 import { CreateSuccessComponent } from './components/create-success/create-success.component';
+import { TasksViewPageComponent } from './containers/tasks-view-page/tasks-view-page.component';
+import { BacklogPageComponent } from './containers/backlog-page/backlog-page.component';
 
 @NgModule({
   imports: [
@@ -19,6 +21,6 @@ import { CreateSuccessComponent } from './components/create-success/create-succe
     ReactiveFormsModule,
     TaskRoutingModule,
   ],
-  declarations: [NewTaskPageComponent, NewTaskComponent, CreateSuccessComponent]
+  declarations: [NewTaskPageComponent, NewTaskComponent, CreateSuccessComponent, TasksViewPageComponent, BacklogPageComponent]
 })
 export class TaskModule { }

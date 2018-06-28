@@ -6,19 +6,16 @@ import {
   MetaReducer
 } from '@ngrx/store';
 import { environment } from '../../../../environments/environment';
-import * as fromTask from './task.reducer';
 import * as fromNewTask from './new-task.reducer';
 import * as fromTasksEntity from './tasks-entity.reducer';
 
 export interface State {
-
-  task: fromTask.State;
+  tasksEntity: fromTasksEntity.State;
   newTask: fromNewTask.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
-
-  task: fromTask.reducer,
+  tasksEntity: fromTasksEntity.reducer,
   newTask: fromNewTask.reducer,
 };
 
@@ -26,6 +23,7 @@ export const reducers: ActionReducerMap<State> = {
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
 
 export const getTask = createFeatureSelector('taskState');
+export const getTasks = createFeatureSelector('tasksEntity');
 
 export const getSliceTask = createSelector(getTask, (state: State) => state.task);
 export const getSliceNewTask = createSelector(getTask, (state: State) => state.newTask);

@@ -17,5 +17,8 @@ export class TaskService {
   createTask(task: TaskForm): Observable<Task> {
     return this.http.post<Task>(this.TASK_URL, task);
   }
-  c
+  getTasksWithoutMember(): Observable<Array<Task>> {
+    return this.http.get<Array<Task>>(`${this.TASK_URL}?member=none`)
+  }
+
 }

@@ -2,21 +2,24 @@ import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import { TasksEntityActions, TasksEntityActionTypes } from '../actions/tasks-entity.actions';
 import { Task } from '../models/task.model';
 
- interface State extends EntityState<Task> {
+export interface State extends EntityState<Task> {
   // additional entities state properties
 }
 
- const adapter: EntityAdapter<Task> = createEntityAdapter<Task>();
+export const adapter: EntityAdapter<Task> = createEntityAdapter<Task>();
 
- const initialState: State = adapter.getInitialState({
+export const initialState: State = adapter.getInitialState({
   // additional entity state properties
 });
 
- function reducer(
+export function reducer(
   state = initialState,
   action: TasksEntityActions
 ): State {
   switch (action.type) {
+    case TasksEntityActionTypes.GetBacklogTaskSuccess: {
+      return adapter.addAll(action.payload.tasks, state);
+    }
     case TasksEntityActionTypes.AddTasksEntity: {
       return adapter.addOne(action.payload.tasksEntity, state);
     }
