@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { fadeAnimation } from '../../../../shared/animations';
 import { UserRole } from '../../models/user-roles.model';
 import { User } from '../../models/User.model';
 
@@ -7,6 +8,7 @@ import { User } from '../../models/User.model';
   selector: 'app-manage-users',
   templateUrl: './manage-users.component.html',
   styleUrls: ['./manage-users.component.css'],
+  animations: [fadeAnimation]
 })
 export class ManageUsersComponent implements OnInit {
   @Input() users: User[];

@@ -1,8 +1,8 @@
 <app-navbar></app-navbar>
 <app-sidebar></app-sidebar>
-<main>
+<main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
   <router-outlet #o="outlet"></router-outlet>
-  <router-outlet name="rootModal"></router-outlet>
+  <!--<router-outlet name="rootModal"></router-outlet>-->
 </main>
 
 
