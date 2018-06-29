@@ -1,0 +1,48 @@
+<section class="box box--static center box--min-size">
+  <header>
+    <h2 class="box__title">{{header}}</h2>
+  </header>
+  <div class="table-info">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">task</th>
+          <th scope="col">status</th>
+          <th scope="col">action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let task of tasks">
+          <td>{{task.title}}</td>
+          <ng-container [ngSwitch]="task.status">
+            <td *ngSwitchCase="'done'" class="task-status task-status--done">Done</td>
+            <td *ngSwitchCase="'inProgress'" class="task-status task-status--in-progress">In progress</td>
+            <td *ngSwitchCase="'notBegin'" class="task-status task-status--not-begin">Not begin</td>
+
+          </ng-container>
+          <td class="text-center">
+            <button class="btn--edit" (click)="editTask.emit(task)">
+              <i class="far fa-edit"></i>
+            </button>
+            <button class="btn--delete" (click)="showDeleteDialog(task)">
+              <i class="far fa-trash-alt"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<app-dialog
+  *ngIf="deleteDialogVisible"
+  [deletingUser]="deletingTask"
+  [complete]="deletingTaskSuccess"
+  [fail]="deletingTaskFail"
+  failMsg="Can not delete this task!!!"
+  completeMsg="Task is deleted"
+  (cancel)="hideDeleteDialog()"
+  (confirm)="onDeleteTask()"
+></app-dialog>

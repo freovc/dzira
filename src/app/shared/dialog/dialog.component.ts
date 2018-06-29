@@ -32,6 +32,8 @@ export class DialogComponent implements OnInit {
   @Input() complete: boolean;
   @Input() completeMsg: string = 'Request complete';
   @Input() failMsg = 'Can not do this';
+  @Input() buttonText = 'Delete';
+
   @Output() confirm = new EventEmitter();
   @Output() cancel = new EventEmitter();
   @ViewChild('dialog') dialog: ElementRef;

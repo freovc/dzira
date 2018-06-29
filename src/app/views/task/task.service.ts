@@ -17,6 +17,9 @@ export class TaskService {
   createTask(task: TaskForm): Observable<Task> {
     return this.http.post<Task>(this.TASK_URL, task);
   }
+  deleteTask(task: Task): Observable<any> {
+    return this.http.delete<any>(`${this.TASK_URL}/${task.id}`);
+  }
   getTasksWithoutMember(): Observable<Array<Task>> {
     return this.http.get<Array<Task>>(`${this.TASK_URL}?member=none`)
   }

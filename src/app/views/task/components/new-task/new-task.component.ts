@@ -67,7 +67,7 @@ export class NewTaskComponent implements OnInit, OnDestroy {
     this.form = this.fb.group({
       id: [this.task.id],
       description: [this.task.description, [Validators.required]],
-      member: [this.task.member],
+      member: [this.task.member || 'none'],
       project: [this.task.project, [Validators.required]],
       status: [this.task.status, [Validators.required]],
       title: [this.task.title, [Validators.required]],

@@ -15,15 +15,6 @@
   ],
   "users": [
     {
-      "fullName": "Nowy",
-      "email": "fdsafd@fdsf",
-      "password": "f",
-      "repeatPassword": "f",
-      "photo": "",
-      "role": "0",
-      "id": 4
-    },
-    {
       "fullName": "fdsafsadf",
       "email": "fsdf@fd",
       "password": "",
@@ -129,6 +120,24 @@
         }
       ],
       "id": 7
+    },
+    {
+      "title": "Project 2",
+      "description": "forget about description\ncheck validation",
+      "startDate": "",
+      "endDate": "",
+      "members": [
+        {
+          "oldPassword": "fdsff",
+          "password": "qqq",
+          "id": 7,
+          "fullName": "poprawiam",
+          "email": "poprawifdfd@fd",
+          "photo": null,
+          "role": "1"
+        }
+      ],
+      "id": 8
     }
   ],
   "tasks": [
@@ -275,6 +284,54 @@
       "project": "7",
       "status": "inProgress",
       "title": "qqqqqqqq"
+    },
+    {
+      "id": 19,
+      "description": "fdsafsadf dsfafsad",
+      "member": "4",
+      "project": "7",
+      "status": "inProgress",
+      "title": "fdsafs"
+    },
+    {
+      "id": 20,
+      "description": "qqqq",
+      "member": null,
+      "project": "7",
+      "status": "notBegin",
+      "title": "qqqq"
+    },
+    {
+      "id": 21,
+      "description": "fds",
+      "member": "none",
+      "project": "7",
+      "status": "notBegin",
+      "title": "fs"
+    },
+    {
+      "id": 22,
+      "description": "fdsa",
+      "member": "6",
+      "project": "7",
+      "status": "notBegin",
+      "title": "fdsa"
+    },
+    {
+      "id": 25,
+      "description": "done",
+      "member": "none",
+      "project": "7",
+      "status": "done",
+      "title": "done"
+    },
+    {
+      "id": 27,
+      "description": "werwqerere",
+      "member": "none",
+      "project": "8",
+      "status": "done",
+      "title": "rwerwe"
     }
   ]
 }

@@ -22,7 +22,7 @@
     </div>
 
     <button #deleteButton class="btn btn--modal" (click)="confirm.emit()" [disabled]="complete">
-      <span [appSpinning]="deletingUser" dotColor="#ffffff">Delete user</span>
+      <span [appSpinning]="deletingUser" dotColor="#ffffff">{{buttonText}}</span>
     </button>
   </section>
 </app-backdrop>

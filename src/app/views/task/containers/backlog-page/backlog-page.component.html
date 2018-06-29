@@ -1,5 +1,9 @@
+<p>
+  backlog-page
+</p>
 <app-tasks-view-page
-  [tasks$]
+  [tasks]="tasks$ | async"
+  header="Task without member"
 >
 
 </app-tasks-view-page>

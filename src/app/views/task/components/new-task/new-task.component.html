@@ -22,7 +22,7 @@
     </select>
     <label for="memberTask" class="form__text form__text--static">Member:</label>
     <select formControlName="member" id="memberTask" type="text" name="memberTask" class="form__elem">
-      <option selected disabled [value]="null">Assign user for this task</option>
+      <option selected disabled [value]="'none'">Assign user for this task</option>
       <option *ngFor="let user of users" [value]="user.id">{{user.fullName}}</option>
     </select>
 
