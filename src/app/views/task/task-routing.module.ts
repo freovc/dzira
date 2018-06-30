@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CreateSuccessComponent } from './components/create-success/create-success.component';
 import { NewTaskPageComponent } from './containers/new-task-page/new-task-page.component';
 import { BacklogPageComponent } from './containers/backlog-page/backlog-page.component';
+import { TaskEditPageComponent } from './containers/task-edit-page/task-edit-page.component';
 
 const routes: Routes = [
   {
@@ -10,7 +11,9 @@ const routes: Routes = [
     children: [
       { path: 'new-task', component: NewTaskPageComponent },
       { path: 'create-success', component: CreateSuccessComponent },
-      { path: 'backlog', component: BacklogPageComponent },
+      { path: 'backlog', component: BacklogPageComponent, children: [
+          {path: 'edit', outlet: 'modal', component: TaskEditPageComponent}
+        ] },
     ],
   },
 ];

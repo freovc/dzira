@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
+import { LoadSingleTask } from '../../actions/single-task.actions';
 import {
   ClearPendingState,
   RequestDeleteTask, SelectTask
@@ -41,6 +42,7 @@ export class TasksViewPageComponent implements OnInit {
   }
   editTask(task: Task) {
     console.log('task to edit ', task);
+    this.store.dispatch(new LoadSingleTask({task}));
   }
   deleteTask(task: Task) {
     console.log('Dispatch deleteTask todo');

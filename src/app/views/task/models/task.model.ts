@@ -5,7 +5,7 @@ export interface Task {
   id: string;
   title: string;
   description: string;
-  project: Project;
+  project: Project | string | number;
   status: string;
-  member: User;
+  member: User | number | string;
 }

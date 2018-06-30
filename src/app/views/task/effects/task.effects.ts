@@ -2,29 +2,22 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
+import { of } from 'rxjs';
 // import { switchMap } from 'rxjs-compat/operator/switchMap';
 import {
-  catchError,
-  map,
-  tap,
-  withLatestFrom,
-  switchMap, mapTo,
+  catchError, map, mapTo, switchMap, tap, withLatestFrom,
 } from 'rxjs/operators';
-import { of, EMPTY  } from 'rxjs';
 import {
-  CreatingTaskFail,
-  CreatingTaskSuccess,
-  NewTaskActionTypes,
-  StartNewTaskForm,
+  CreatingTaskFail, CreatingTaskSuccess, NewTaskActionTypes, StartNewTaskForm,
 } from '../actions/new-task.actions';
+import {
+  DeleteTasksEntity, LoadTasksEntitysFail, LoadTasksEntitysSuccess,
+  RequestDeleteTask, RequestDeleteTaskFail, TasksEntityActionTypes,
+  RequestUpdateTask, RequestUpdateTaskFail, UpsertTasksEntity
+} from '../actions/tasks-entity.actions';
 import * as fromTask from '../reducers';
 import { TaskService } from '../task.service';
-import {
-  DeleteTasksEntity,
-  GetBacklogTask, GetBacklogTaskSuccess, LoadTasksEntitysFail,
-  LoadTasksEntitysSuccess, RequestDeleteTask, RequestDeleteTaskFail,
-  TasksEntityActionTypes
-} from '../actions/tasks-entity.actions';
+
 @Injectable()
 export class TaskEffects {
   @Effect()
@@ -64,6 +57,17 @@ export class TaskEffects {
       )
     )
 
+  );
+  @Effect()
+  requestUpdateTask$ = this.actions$.pipe(
+    ofType<RequestUpdateTask>(TasksEntityActionTypes.RequestUpdateTask),
+    switchMap(action =>
+      this.taskService.updateTask(action.payload.task)
+        .pipe(
+          switchMap(task => [new UpsertTasksEntity({tasksEntity: {...task} })]),
+          catchError(error => of(new RequestUpdateTaskFail()))
+      )
+    )
   )
   @Effect()
   getBacklogTask$ = this.actions$.pipe(

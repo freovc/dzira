@@ -43,6 +43,24 @@ export function reducer(
   action: TasksEntityActions,
 ): State {
   switch (action.type) {
+    case TasksEntityActionTypes.RequestUpdateTask: {
+        return {
+        ...state,
+          updatingTask: true,
+          updatingTaskSuccess: false,
+          updatingTaskFail: false,
+
+        };
+    }
+    case TasksEntityActionTypes.RequestUpdateTaskFail: {
+      return {
+        ...state,
+        updatingTask: false,
+        updatingTaskSuccess: false,
+        updatingTaskFail: true,
+
+      };
+    }
     case TasksEntityActionTypes.RequestDeleteTask:
       return {
         ...state,
@@ -78,7 +96,12 @@ export function reducer(
       return adapter.addOne(action.payload.tasksEntity, state);
     }
     case TasksEntityActionTypes.UpsertTasksEntity: {
-      return adapter.upsertOne(action.payload.tasksEntity, state);
+      return adapter.upsertOne(action.payload.tasksEntity, {
+        ...state,
+        updatingTask: false,
+        updatingTaskSuccess: true,
+        updatingTaskFail: false,
+      });
     }
     case TasksEntityActionTypes.AddTasksEntitys: {
       return adapter.addMany(action.payload.tasksEntitys, state);

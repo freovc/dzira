@@ -30,7 +30,7 @@ export class UsersService {
   }
 
   getUser(userId: number): Observable<any> {
-    return this.http.delete<any>([this.USERS_URL, userId].join('/'));
+    return this.http.get<any>([this.USERS_URL, userId].join('/'));
   }
 
   deleteUser(userId: number): Observable<any> {

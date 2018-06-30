@@ -1,10 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-backdrop',
   template: `
   <div [class]="modalClass" (click)="backdropClick.emit($event)">
-        <ng-content></ng-content>
+        
+          <ng-content></ng-content>
+        
   </div>
   
   `,
@@ -37,8 +40,11 @@ export class BackdropComponent implements OnInit {
   modalClass: string;
 
   constructor() {}
-
+  ignore(event: Event) {
+    event.stopPropagation();
+  }
   ngOnInit() {
     this.modalClass = ['app-modal', 'backdrop', this.showAs].join(' ');
   }
+
 }

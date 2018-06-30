@@ -1,3 +1,16 @@
-<p>
-  task-edit-page works!
-</p>
+<app-task-edit
+  [loadSingleTask]="loadSingleTask$ | async"
+  [loadSingleTaskSuccess]="loadSingleTaskSuccess$ | async"
+  [loadSingleTaskFail]="loadSingleTaskFail$ | async"
+  [updatingTask]="updatingTask$ | async"
+  [updatingTaskSuccess]="updatingTaskSuccess$ | async"
+  [updatingTaskFail]="updatingTaskFail$ | async"
+  [loadedTask]="loadedTask$ | async"
+  [users]="users$ | async"
+  [projects]="projects$ | async"
+
+  (closeWindow)="closeWindow()"
+  (updateTask)="updateTask($event)"
+>
+
+</app-task-edit>

@@ -22,7 +22,7 @@
 
           </ng-container>
           <td class="text-center">
-            <button class="btn--edit" (click)="editTask.emit(task)">
+            <button class="btn--edit" (click)="editTask.emit(task)" [routerLink]="['/tasks/backlog', {outlets: {modal: 'edit'}}]">
               <i class="far fa-edit"></i>
             </button>
             <button class="btn--delete" (click)="showDeleteDialog(task)">
@@ -46,3 +46,4 @@
   (cancel)="hideDeleteDialog()"
   (confirm)="onDeleteTask()"
 ></app-dialog>
+

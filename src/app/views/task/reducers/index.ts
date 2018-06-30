@@ -5,15 +5,18 @@ import { environment } from '../../../../environments/environment';
 import * as fromNewTask from './new-task.reducer';
 import * as fromTasksEntity from './tasks-entity.reducer';
 import { Task } from '../models/task.model';
+import * as fromSingleTask from './single-task.reducer';
 
 export interface State {
   tasksEntity: fromTasksEntity.State;
   newTask: fromNewTask.State;
+  singleTask: fromSingleTask.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
   tasksEntity: fromTasksEntity.reducer,
   newTask: fromNewTask.reducer,
+  singleTask: fromSingleTask.reducer,
 };
 
 
@@ -24,6 +27,7 @@ export const getTask = createFeatureSelector('taskState');
 
 export const getSliceTasks = createSelector(getTask, (state: State) => state.tasksEntity);
 export const getSliceNewTask = createSelector(getTask, (state: State) => state.newTask);
+export const getSliceSingleTask = createSelector(getTask, (state: State) => state.singleTask);
 
 /* NEW_TASK_SELECTORS */
 export const getCreatingTask = createSelector(getSliceNewTask, fromNewTask.getCreatingTask);
@@ -45,3 +49,8 @@ export const getUpdatingTask = createSelector(getSliceTasks, fromTasksEntity.get
 export const getUpdatingTaskSuccess = createSelector(getSliceTasks, fromTasksEntity.getUpdatingTaskSuccess);
 export const getUpdatingTaskFail = createSelector(getSliceTasks, fromTasksEntity.getUpdatingTaskFail);
 
+/* SINGLE TASK */
+export const getLoadingTask = createSelector(getSliceSingleTask, fromSingleTask.getLoadingTask);
+export const getLoadingTaskSuccess = createSelector(getSliceSingleTask, fromSingleTask.getLoadingTaskSuccess);
+export const getLoadingTaskFail = createSelector(getSliceSingleTask, fromSingleTask.getLoadingTaskFail);
+export const getLoadedTask = createSelector(getSliceSingleTask, fromSingleTask.getLoadedTask);

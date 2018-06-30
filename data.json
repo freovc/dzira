@@ -305,9 +305,9 @@
       "id": 21,
       "description": "fds",
       "member": "none",
-      "project": "7",
+      "project": 7,
       "status": "notBegin",
-      "title": "fs"
+      "title": "after update"
     },
     {
       "id": 22,
@@ -320,8 +320,8 @@
     {
       "id": 25,
       "description": "done",
-      "member": "none",
-      "project": "7",
+      "member": "10",
+      "project": 7,
       "status": "done",
       "title": "done"
     },
@@ -329,9 +329,17 @@
       "id": 27,
       "description": "werwqerere",
       "member": "none",
-      "project": "8",
-      "status": "done",
-      "title": "rwerwe"
+      "project": 8,
+      "status": "inProgress",
+      "title": "rwerweddddd"
+    },
+    {
+      "id": 28,
+      "description": "proj2 done no assinged",
+      "member": "none",
+      "project": "7",
+      "status": "inProgress",
+      "title": "Task check update to in porg, proj1"
     }
   ]
 }
