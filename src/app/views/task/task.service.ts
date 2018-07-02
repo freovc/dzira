@@ -25,7 +25,12 @@ export class TaskService {
   }
 
   createTask(task: TaskForm): Observable<Task> {
-    return this.http.post<Task>(this.TASK_URL, task);
+    const body = {...task, member: +task.member, project: +task.project};
+    return this.http.post<Task>(this.TASK_URL, body);
+  }
+  updateTask(task: Task): Observable<Task> {
+    const body = {...task, member: +task.member, project: +task.project};
+    return this.http.put<Task>(`${this.TASK_URL}/${task.id}`, body);
   }
 
   deleteTask(task: Task): Observable<any> {
@@ -33,7 +38,7 @@ export class TaskService {
   }
 
   getTasksWithoutMember(): Observable<Array<Task>> {
-    return this.http.get<Array<Task>>(`${this.TASK_URL}?member=none`);
+    return this.http.get<Array<Task>>(`${this.TASK_URL}?member=0`);
   }
 
   getTasks(): Observable<Array<Task>> {
@@ -41,9 +46,10 @@ export class TaskService {
   }
   // we can call this like here or
   // in real app try to use /users/:id/tasks
-  getUserTasks({userId: any}): Observable<Array<Task>> {
-    return this.http.get<Array<Task>>(`${this.TASK_URL}?member=userId`);
+  getUserTasks({userId}): Observable<Array<Task>> {
+    return this.http.get<Array<Task>>(`${this.TASK_URL}?member=${userId}`);
   }
+
 
   getTask(task: Task): Observable<Task> {
     return this.http
@@ -60,7 +66,4 @@ export class TaskService {
       );
   }
 
-  updateTask(task: Task): Observable<Task> {
-    return this.http.put<Task>(`${this.TASK_URL}/${task.id}`, task);
-  }
 }

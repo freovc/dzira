@@ -48,6 +48,7 @@ export class NewTaskComponent implements OnInit, OnDestroy {
   @Input() isCreateForm: boolean;
 
   @Output() createTask = new EventEmitter<TaskForm>();
+  @Output() close = new EventEmitter<TaskForm>();
   @Output() updateTask = new EventEmitter<TaskForm>();
   @Output() synchronizeForm = new EventEmitter<TaskForm>();
   private formChangeSubscription: Subscription;
@@ -67,7 +68,7 @@ export class NewTaskComponent implements OnInit, OnDestroy {
     this.form = this.fb.group({
       id: [this.task.id],
       description: [this.task.description, [Validators.required]],
-      member: [this.task.member && this.task.member.id || 'none'],
+      member: [this.task.member && (this.task.member as User).id || 0],
       project: [this.task.project && this.task.project.id, [Validators.required]],
       status: [this.task.status, [Validators.required]],
       title: [this.task.title, [Validators.required]],

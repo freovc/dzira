@@ -11,6 +11,9 @@ export enum TasksEntityActionTypes {
   LoadTasksEntitysFail = '[TasksEntity] Load Load Tasks Entitys Fail',
 
   GetBacklogTask = '[TasksEntity] Get Backlog Tasks',
+  GetTaskboardTask = '[TasksEntity] Get Taskbar Task',
+  GetLoggedUserTask = '[TasksEntity] Get Logged user Task',
+  GetWorkByPersonTask = '[TasksEntity] Get Logged user Task',
 
   GetBacklogTaskSuccess = '[TasksEntity] Get Backlog Task Success',
   AddTasksEntity = '[TasksEntity] Add TasksEntity',
@@ -30,6 +33,10 @@ export enum TasksEntityActionTypes {
   RequestUpdateTaskFail = '[TaskEntity] Request Update Task',
 
 }
+export class GetWorkByPersonTask implements Action {
+   readonly type = TasksEntityActionTypes.GetWorkByPersonTask;
+ }
+
 export class RequestUpdateTask implements Action {
   readonly type = TasksEntityActionTypes.RequestUpdateTask;
   constructor(public payload: {task: Task} ) { }
@@ -52,7 +59,12 @@ export class RequestDeleteTask implements Action {
 export class GetBacklogTask implements Action {
   readonly type = TasksEntityActionTypes.GetBacklogTask;
 }
-
+export class GetTaskboardTask implements Action {
+  readonly type = TasksEntityActionTypes.GetTaskboardTask;
+}
+export class GetLoggedUserTask implements Action {
+  readonly type = TasksEntityActionTypes.GetLoggedUserTask;
+}
 export class ClearPendingState implements Action {
   readonly type = TasksEntityActionTypes.ClearPendingState;
 }
@@ -143,4 +155,7 @@ export type TasksEntityActions =
   | RequestDeleteTaskFail
   | RequestUpdateTask
   | RequestUpdateTaskFail
+  | GetTaskboardTask
+  | GetLoggedUserTask
+  | GetWorkByPersonTask
   | SelectTask;

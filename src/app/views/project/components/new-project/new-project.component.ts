@@ -2,7 +2,7 @@ import {
   Component, EventEmitter, Input, OnDestroy, OnInit, Output
 } from '@angular/core';
 import { E } from '@angular/core/src/render3';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 import { FormHelper } from '../../../../shared/helpers';
 import { User } from '../../../users/models/User.model';
@@ -48,9 +48,9 @@ export class NewProjectComponent implements OnInit, OnDestroy {
   }
   buildForm() {
     this.form = this.fb.group({
-      title: [''],
-      description: '',
-      startDate: '',
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      startDate: ['', Validators.required],
       endDate: '',
       members: [[]],
     });
@@ -61,7 +61,7 @@ export class NewProjectComponent implements OnInit, OnDestroy {
   submit() {
     this.formHelper.markAllControlsAsDirtyAndTouched();
     // TODO enable validation
-    if(true || this.form.valid) {
+    if(this.form.valid) {
       this.createProject.emit();
     }
   }

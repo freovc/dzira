@@ -1,22 +1,18 @@
-<p>
-  tasks-view-page works!
-</p>
-<p>
-  <app-tasks-view
-    [tasks]="tasks"
-    [header]="header"
-    [gettingTasks]="gettingTasks$ | async"
-    [gettingTasksSuccess]="gettingTasksSuccess$ | async"
-    [gettingTasksFail]="gettingTasksFail$ | async"
-    [gettingTasksFailMsg]="gettingTasksFailMsg$ | async"
-    [deletingTask]="deletingTask$ | async"
-    [deletingTaskSuccess]="deletingTaskSuccess$ | async"
-    [deletingTaskFail]="deletingTaskFail$ | async"
+<app-tasks-view
+  [tasks]="tasks"
+  [header]="header"
+  [gettingTasks]="gettingTasks$ | async"
+  [gettingTasksSuccess]="gettingTasksSuccess$ | async"
+  [gettingTasksFail]="gettingTasksFail$ | async"
+  [gettingTasksFailMsg]="gettingTasksFailMsg$ | async"
+  [deletingTask]="deletingTask$ | async"
+  [deletingTaskSuccess]="deletingTaskSuccess$ | async"
+  [deletingTaskFail]="deletingTaskFail$ | async"
 
-    (deleteTask)="deleteTask($event)"
-    (clearPendingState)="clearPendingState()"
-    (editTask)="editTask($event)"
+  (deleteTask)="deleteTask($event)"
+  (clearPendingState)="clearPendingState()"
+  (editTask)="editTask($event)"
 
 
-  ></app-tasks-view>
-</p>
+></app-tasks-view>
+

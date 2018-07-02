@@ -1,11 +1,14 @@
 import {
-  ActionReducerMap, createFeatureSelector, createSelector, MetaReducer
+  ActionReducerMap, createFeatureSelector, createSelector, MemoizedSelector,
+  MetaReducer
 } from '@ngrx/store';
 import { environment } from '../../../../environments/environment';
+import { User } from '../../users/models/User.model';
 import * as fromNewTask from './new-task.reducer';
 import * as fromTasksEntity from './tasks-entity.reducer';
 import { Task } from '../models/task.model';
 import * as fromSingleTask from './single-task.reducer';
+import * as fromUser from '../../users/reducers';
 
 export interface State {
   tasksEntity: fromTasksEntity.State;
@@ -22,12 +25,12 @@ export const reducers: ActionReducerMap<State> = {
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
 
-export const getTask = createFeatureSelector('taskState');
+export const tasksState = createFeatureSelector('taskState');
 
 
-export const getSliceTasks = createSelector(getTask, (state: State) => state.tasksEntity);
-export const getSliceNewTask = createSelector(getTask, (state: State) => state.newTask);
-export const getSliceSingleTask = createSelector(getTask, (state: State) => state.singleTask);
+export const getSliceTasks = createSelector(tasksState, (state: State) => state.tasksEntity);
+export const getSliceNewTask = createSelector(tasksState, (state: State) => state.newTask);
+export const getSliceSingleTask = createSelector(tasksState, (state: State) => state.singleTask);
 
 /* NEW_TASK_SELECTORS */
 export const getCreatingTask = createSelector(getSliceNewTask, fromNewTask.getCreatingTask);
@@ -48,6 +51,14 @@ export const getGetDeltingTaskFail = createSelector(getSliceTasks, fromTasksEnti
 export const getUpdatingTask = createSelector(getSliceTasks, fromTasksEntity.getUpdatingTask);
 export const getUpdatingTaskSuccess = createSelector(getSliceTasks, fromTasksEntity.getUpdatingTaskSuccess);
 export const getUpdatingTaskFail = createSelector(getSliceTasks, fromTasksEntity.getUpdatingTaskFail);
+export const getTaskWithUsers = createSelector(
+  fromUser.getUsersEntitis,
+  fromUser.getUsersCount,
+  getTasks,
+
+  (users, total, tasks) => ({users, total, tasks})
+
+  );
 
 /* SINGLE TASK */
 export const getLoadingTask = createSelector(getSliceSingleTask, fromSingleTask.getLoadingTask);

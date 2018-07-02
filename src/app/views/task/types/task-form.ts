@@ -8,5 +8,5 @@ export interface TaskForm  {
   description: string;
   project: Project;
   status: string;
-  member: User;
+  member: User | string;
 }

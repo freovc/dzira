@@ -83,6 +83,8 @@ export function reducer(
         deltingTaskSuccess: true,
       });
     }
+    case TasksEntityActionTypes.GetLoggedUserTask:
+    case TasksEntityActionTypes.GetTaskboardTask:
     case TasksEntityActionTypes.GetBacklogTask: {
       return {
         ...state,

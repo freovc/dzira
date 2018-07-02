@@ -1,0 +1,23 @@
+<app-backdrop [showAs]="'info'" (backdropClick)="closeWindow.emit()">
+
+  <app-new-task
+    *ngIf="loadSingleTaskSuccess"
+    [updatingTask]="updatingTask"
+    [updatingTaskFail]="updatingTaskFail"
+    [updatingTaskSuccess]="updatingTaskSuccess"
+    [task]="loadedTask"
+    [users]="users"
+    [projects]="projects"
+    [isCreateForm]="false"
+    (click)="ignoreClick($event)"
+    (updateTask)="updateTask.emit($event)"
+    (close)="closeWindow.emit()"
+  >
+
+  </app-new-task>
+  <app-loading-indicator *ngIf="loadSingleTask"></app-loading-indicator>
+  <p *ngIf="loadSingleTaskFail" class="alert-danger alert position">
+    <span class="fa fa-3x fa-warning" ></span>&nbsp;
+    <span class="error-loading-msg" style=""> Loading data for this task encountered an error.</span>
+  </p>
+</app-backdrop>

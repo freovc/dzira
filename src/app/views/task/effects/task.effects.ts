@@ -16,6 +16,7 @@ import {
   RequestUpdateTask, RequestUpdateTaskFail, UpsertTasksEntity
 } from '../actions/tasks-entity.actions';
 import * as fromTask from '../reducers';
+import * as fromRoot from '../../../reducers';
 import { TaskService } from '../task.service';
 
 @Injectable()
@@ -68,11 +69,28 @@ export class TaskEffects {
           catchError(error => of(new RequestUpdateTaskFail()))
       )
     )
-  )
+  );
   @Effect()
   getBacklogTask$ = this.actions$.pipe(
     ofType(TasksEntityActionTypes.GetBacklogTask),
     switchMap(() => this.taskService.getTasksWithoutMember().pipe(
+      switchMap(tasksEntitys => [new LoadTasksEntitysSuccess({tasksEntitys})]),
+      catchError(error => [new LoadTasksEntitysFail({error})])
+    )),
+  );
+  @Effect()
+  getTaskboardTask$ = this.actions$.pipe(
+    ofType(TasksEntityActionTypes.GetTaskboardTask),
+    switchMap(() => this.taskService.getTasks().pipe(
+      switchMap(tasksEntitys => [new LoadTasksEntitysSuccess({tasksEntitys})]),
+      catchError(error => [new LoadTasksEntitysFail({error})])
+    )),
+  );
+  @Effect()
+  getLoggedUserTask$ = this.actions$.pipe(
+    ofType(TasksEntityActionTypes.GetLoggedUserTask),
+    withLatestFrom(this.store.select(fromRoot.getAuthenticatedUser)),
+    switchMap(([action, user]) => this.taskService.getUserTasks({userId: user.userId}).pipe(
       switchMap(tasksEntitys => [new LoadTasksEntitysSuccess({tasksEntitys})]),
       catchError(error => [new LoadTasksEntitysFail({error})])
     )),

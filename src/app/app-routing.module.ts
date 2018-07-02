@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Error404Component } from './views/error404.component';
+import { MyworkPageComponent } from './views/task/containers/mywork-page/mywork-page.component';
 import { AuthenticateComponent } from './views/users/components/authenticate/authenticate.component';
 import { UserCreatedComponent } from './views/users/components/user-created/user-created.component';
 import { UserWorkComponent } from './views/users/components/user-work/user-work.component';
@@ -14,7 +15,7 @@ const routes: Routes = [
   {
     path: 'users',
     children: [
-      { path: 'mywork', component: UserWorkComponent },
+      { path: 'mywork', component: MyworkPageComponent },
       { path: 'authenticate', component: AuthenticateComponent },
       { path: 'create', component: UserFormPageComponent },
       { path: 'user-created', component: UserCreatedComponent },

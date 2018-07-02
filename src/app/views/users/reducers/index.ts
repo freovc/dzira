@@ -107,6 +107,16 @@ export const getUsers = createSelector(
   getSliceUsersEnity,
   fromUserEntity.selectAll,
 );
+
+export const getUsersEntitis = createSelector(
+  getSliceUsersEnity,
+  fromUserEntity.selectEntities
+);
+export const getUsersCount = createSelector(
+  getSliceUsersEnity,
+  fromUserEntity.selectTotal
+)
+
 export const getTotal = createSelector(
   getSliceUserRoles,
   fromUserRoles.selectTotal,

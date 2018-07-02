@@ -46,7 +46,7 @@ export class TaskEditPageComponent implements OnInit {
 
   }
   closeWindow() {
-    this.router.navigate(['..'], { relativeTo: this.activatedRouter });
+    this.router.navigate(['..'], { relativeTo: this.activatedRouter, skipLocationChange: true });
   }
   ngOnInit() {
     this.store.dispatch(new LoadUsers());

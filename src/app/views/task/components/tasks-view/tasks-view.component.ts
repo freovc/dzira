@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Task } from '../../models/task.model';
 
 @Component({
@@ -24,12 +25,16 @@ export class TasksViewComponent implements OnInit {
   @Output() editTask = new EventEmitter<Task>();
   deleteDialogVisible = false;
   selectedTask: Task;
-  constructor() { }
+  constructor(private router: Router, private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
   }
 
-
+  onEditTask(task: Task) {
+    this.clearPendingState.emit();
+    this.editTask.emit(task);
+    this.router.navigate(['.', {outlets: {modal: 'edit'}}], {relativeTo: this.activeRoute, skipLocationChange: true});
+  }
 
   showDeleteDialog(task: Task) {
     this.selectedTask = task;

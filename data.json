@@ -13,333 +13,149 @@
       "name": "Admin"
     }
   ],
-  "users": [
-    {
-      "fullName": "fdsafsadf",
-      "email": "fsdf@fd",
-      "password": "",
-      "repeatPassword": "f",
-      "photo": "",
-      "role": "0",
-      "id": 6,
-      "oldPassword": "aaaaaa"
-    },
-    {
-      "oldPassword": "fdsff",
-      "password": "qqq",
-      "id": 7,
-      "fullName": "poprawiam",
-      "email": "poprawifdfd@fd",
-      "photo": null,
-      "role": "1"
-    },
-    {
-      "fullName": "new user afte",
-      "email": "fjdsal@jf",
-      "password": "fff",
-      "repeatPassword": "fff",
-      "photo": "",
-      "role": "1",
-      "id": 8
-    },
-    {
-      "fullName": "jfdaskl",
-      "email": "fjdkasdl@fjdks",
-      "password": "aaaaaaaa",
-      "repeatPassword": "aaaaaaaa",
-      "photo": "",
-      "role": "1",
-      "id": 9
-    },
-    {
-      "fullName": "f",
-      "email": "fsdafsd@fds",
-      "password": "ffffffff",
-      "repeatPassword": "ffffffff",
-      "photo": "",
-      "role": "0",
-      "id": 10
-    }
-  ],
   "authorize": [
     {
       "fullName": "Registered1",
       "email": "jfdsa@jk",
       "photo": "",
-      "role": "admin",
+      "group": "admin",
       "id": 1
+    },
+    {
+      "fullName": "Registered1",
+      "email": "jfdsa@jk",
+      "photo": "",
+      "group": "admin",
+      "id": 2
+    },
+    {
+      "fullName": "Registered1",
+      "email": "jfdsa@jk",
+      "photo": "",
+      "group": "admin",
+      "id": 3
+    },
+    {
+      "fullName": "Registered1",
+      "email": "jfdsa@jk",
+      "photo": "",
+      "group": "admin",
+      "id": 7
     }
   ],
   "logout": {
     "status": "logout"
   },
+  "users": [
+    {
+      "fullName": "user4",
+      "email": "ognore@email",
+      "password": "f",
+      "repeatPassword": "f",
+      "photo": "",
+      "role": "0",
+      "id": 1
+    },
+    {
+      "fullName": "user3",
+      "email": "keepThis@aways",
+      "password": "aa",
+      "repeatPassword": "aa",
+      "photo": "",
+      "role": "0",
+      "id": 2
+    },
+    {
+      "fullName": "user1",
+      "email": "user1@email",
+      "password": "f",
+      "repeatPassword": "f",
+      "photo": "",
+      "role": "0",
+      "id": 3
+    },
+    {
+      "fullName": "user2",
+      "email": "user2@emial.com",
+      "password": "f",
+      "repeatPassword": "f",
+      "photo": "",
+      "role": "1",
+      "id": 4
+    }
+  ],
   "projects": [
     {
-      "title": "Project",
-      "description": "check if it is disabled of something\n4 users",
-      "startDate": "2018-06-07",
-      "endDate": "2018-06-05",
+      "title": "Project1",
+      "description": "description proj1",
+      "startDate": "2018-07-05",
+      "endDate": "2018-07-13",
       "members": [
         {
-          "fullName": "ffddqqq123",
-          "email": "fff@fd",
-          "password": "aaaaaaaa",
-          "repeatPassword": "f",
-          "photo": "",
-          "role": "2",
-          "id": 1,
-          "oldPassword": "11"
-        },
-        {
-          "fullName": "fdsafsadf",
-          "email": "fsdf@fd",
-          "password": "",
+          "fullName": "user1",
+          "email": "user1@email",
+          "password": "f",
           "repeatPassword": "f",
           "photo": "",
           "role": "0",
-          "id": 6,
-          "oldPassword": "aaaaaa"
+          "id": 3
         },
         {
-          "oldPassword": "fdsff",
-          "password": "qqq",
-          "id": 7,
-          "fullName": "poprawiam",
-          "email": "poprawifdfd@fd",
-          "photo": null,
-          "role": "1"
-        },
-        {
-          "fullName": "new user afte",
-          "email": "fjdsal@jf",
-          "password": "fff",
-          "repeatPassword": "fff",
+          "fullName": "user2",
+          "email": "user2@emial.com",
+          "password": "f",
+          "repeatPassword": "f",
           "photo": "",
           "role": "1",
-          "id": 8
+          "id": 4
         }
       ],
-      "id": 7
+      "id": 1
     },
     {
-      "title": "Project 2",
-      "description": "forget about description\ncheck validation",
-      "startDate": "",
-      "endDate": "",
-      "members": [
-        {
-          "oldPassword": "fdsff",
-          "password": "qqq",
-          "id": 7,
-          "fullName": "poprawiam",
-          "email": "poprawifdfd@fd",
-          "photo": null,
-          "role": "1"
-        }
-      ],
-      "id": 8
+      "id": 2
     }
   ],
   "tasks": [
     {
       "id": 1,
-      "description": "fadsfasd",
-      "member": null,
-      "project": "7",
-      "status": "notBegin",
-      "title": "fasf"
-    },
-    {
-      "id": 2,
-      "description": "fadsfasd",
-      "member": null,
-      "project": "7",
-      "status": "notBegin",
-      "title": "fasf"
+      "description": "fasfasdfas",
+      "member": 3,
+      "project": 1,
+      "status": "inProgress",
+      "title": "task for u1"
     },
     {
       "id": 3,
-      "description": "fadsfasd",
-      "member": null,
-      "project": "7",
-      "status": "notBegin",
-      "title": "fasf"
+      "description": "fdafdsaf",
+      "member": 4,
+      "project": 1,
+      "status": "inProgress",
+      "title": "task2 for user2"
     },
     {
       "id": 4,
-      "description": "fadsfasd",
-      "member": null,
-      "project": "7",
+      "description": "task without member",
+      "member": 2,
+      "project": 1,
       "status": "notBegin",
-      "title": "fasf"
+      "title": "task without member"
     },
     {
       "id": 5,
-      "description": "fadsfasd",
-      "member": null,
-      "project": "7",
-      "status": "notBegin",
-      "title": "fasf"
+      "description": "fasdfasf",
+      "member": 0,
+      "project": 1,
+      "status": "done",
+      "title": "no user"
     },
     {
       "id": 6,
-      "description": "fadsfasd",
-      "member": null,
-      "project": "7",
-      "status": "notBegin",
-      "title": "fasf"
-    },
-    {
-      "id": 7,
-      "description": "fadsfasd",
-      "member": null,
-      "project": "7",
-      "status": "notBegin",
-      "title": "fasf"
-    },
-    {
-      "id": 8,
-      "description": "fadsfasd",
-      "member": null,
-      "project": "7",
-      "status": "notBegin",
-      "title": "fasf"
-    },
-    {
-      "id": 9,
-      "description": "fadsfasd",
-      "member": null,
-      "project": "7",
-      "status": "notBegin",
-      "title": "fasf"
-    },
-    {
-      "id": 10,
-      "description": "fadsfasd",
-      "member": null,
-      "project": "7",
-      "status": "notBegin",
-      "title": "fasf"
-    },
-    {
-      "id": 11,
-      "description": "fadsfasd",
-      "member": "6",
-      "project": "7",
-      "status": "notBegin",
-      "title": "fasf"
-    },
-    {
-      "id": 12,
-      "description": "fadsfasd",
-      "member": "6",
-      "project": "7",
-      "status": "notBegin",
-      "title": "fasf"
-    },
-    {
-      "id": 13,
-      "description": "fadsfasd",
-      "member": "6",
-      "project": "7",
-      "status": "notBegin",
-      "title": "fasf"
-    },
-    {
-      "id": 14,
-      "description": "fadsfasd",
-      "member": "6",
-      "project": "7",
-      "status": "notBegin",
-      "title": "fasf"
-    },
-    {
-      "id": 15,
-      "description": "fadsfasd",
-      "member": "6",
-      "project": "7",
-      "status": "done",
-      "title": "fasf"
-    },
-    {
-      "id": 16,
-      "description": "fadsfasd",
-      "member": "6",
-      "project": "7",
-      "status": "done",
-      "title": "fasf"
-    },
-    {
-      "id": 17,
-      "description": "gsfdgdsfg",
-      "member": null,
-      "project": "7",
-      "status": "notBegin",
-      "title": "gfdsfgdsf"
-    },
-    {
-      "id": 18,
-      "description": "qqqqqqqqq",
-      "member": "7",
-      "project": "7",
+      "description": "gsdgs",
+      "member": 1,
+      "project": 1,
       "status": "inProgress",
-      "title": "qqqqqqqq"
-    },
-    {
-      "id": 19,
-      "description": "fdsafsadf dsfafsad",
-      "member": "4",
-      "project": "7",
-      "status": "inProgress",
-      "title": "fdsafs"
-    },
-    {
-      "id": 20,
-      "description": "qqqq",
-      "member": null,
-      "project": "7",
-      "status": "notBegin",
-      "title": "qqqq"
-    },
-    {
-      "id": 21,
-      "description": "fds",
-      "member": "none",
-      "project": 7,
-      "status": "notBegin",
-      "title": "after update"
-    },
-    {
-      "id": 22,
-      "description": "fdsa",
-      "member": "6",
-      "project": "7",
-      "status": "notBegin",
-      "title": "fdsa"
-    },
-    {
-      "id": 25,
-      "description": "done",
-      "member": "10",
-      "project": 7,
-      "status": "done",
-      "title": "done"
-    },
-    {
-      "id": 27,
-      "description": "werwqerere",
-      "member": "none",
-      "project": 8,
-      "status": "inProgress",
-      "title": "rwerweddddd"
-    },
-    {
-      "id": 28,
-      "description": "proj2 done no assinged",
-      "member": "none",
-      "project": "7",
-      "status": "inProgress",
-      "title": "Task check update to in porg, proj1"
+      "title": "fsdg"
     }
   ]
 }

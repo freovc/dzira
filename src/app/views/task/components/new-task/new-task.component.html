@@ -3,6 +3,7 @@
     <h2 class="box__title">
       {{isCreateForm ? 'Create a new task' : 'Update task'}}
     </h2>
+    <i _ngcontent-c8="" class="glyphicon glyphicon-remove-circle close-icon" (click)="close.emit()"></i>
   </header>
   <div class="box--static__forms--nophoto no-error" [formGroup]="form">
     <label for="taskTitle" class="form__text form__text--static ">Title:</label>
@@ -22,7 +23,7 @@
     </select>
     <label for="memberTask" class="form__text form__text--static">Member:</label>
     <select formControlName="member" id="memberTask" type="text" name="memberTask" class="form__elem">
-      <option selected disabled [value]="'none'">Assign user for this task</option>
+      <option selected disabled [value]="0">Assign user for this task</option>
       <option *ngFor="let user of users" [value]="user.id">{{user.fullName}}</option>
     </select>
 
@@ -33,7 +34,9 @@
     <p *ngIf="updatingTaskFail" class="text-center text-danger">
       Can not update data for this task
     </p>
-
+    <p *ngIf="updatingTaskSuccess" style="margin: 0 20%" class="alert alert-success text-center text-success">
+      Update task success full.
+    </p>
 
 
   </div>

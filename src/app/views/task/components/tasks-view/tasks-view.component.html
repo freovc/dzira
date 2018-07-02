@@ -3,7 +3,9 @@
     <h2 class="box__title">{{header}}</h2>
   </header>
   <div class="table-info">
+    <app-loading-indicator *ngIf="gettingTasks"></app-loading-indicator>
     <div class="table-responsive">
+
       <table class="table">
         <thead>
         <tr>
@@ -22,7 +24,7 @@
 
           </ng-container>
           <td class="text-center">
-            <button class="btn--edit" (click)="editTask.emit(task)" [routerLink]="['/tasks/backlog', {outlets: {modal: 'edit'}}]">
+            <button class="btn--edit" (click)="onEditTask(task)">
               <i class="far fa-edit"></i>
             </button>
             <button class="btn--delete" (click)="showDeleteDialog(task)">

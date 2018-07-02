@@ -16,6 +16,9 @@ import { BacklogPageComponent } from './containers/backlog-page/backlog-page.com
 import { TasksViewComponent } from './components/tasks-view/tasks-view.component';
 import { TaskEditPageComponent } from './containers/task-edit-page/task-edit-page.component';
 import { TaskEditComponent } from './components/task-edit/task-edit.component';
+import { TaskboardPageComponent } from './containers/taskboard-page/taskboard-page.component';
+import { MyworkPageComponent } from './containers/mywork-page/mywork-page.component';
+import { WorkByPersonPageComponent } from './containers/work-by-person-page/work-by-person-page.component';
 
 @NgModule({
   imports: [
@@ -25,6 +28,6 @@ import { TaskEditComponent } from './components/task-edit/task-edit.component';
     ReactiveFormsModule,
     TaskRoutingModule,
   ],
-  declarations: [NewTaskPageComponent, NewTaskComponent, CreateSuccessComponent, TasksViewPageComponent, BacklogPageComponent, TasksViewComponent, TaskEditPageComponent, TaskEditComponent]
+  declarations: [NewTaskPageComponent, NewTaskComponent, CreateSuccessComponent, TasksViewPageComponent, BacklogPageComponent, TasksViewComponent, TaskEditPageComponent, TaskEditComponent, TaskboardPageComponent, MyworkPageComponent, WorkByPersonPageComponent]
 })
 export class TaskModule { }

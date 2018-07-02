@@ -1,0 +1,19 @@
+<!--<app-tasks-view-page-->
+  <!--[tasks]="tasks$ | async"-->
+  <!--header="Task without member"-->
+<!--&gt;-->
+<!--</app-tasks-view-page>-->
+<router-outlet name="modal"></router-outlet>
+
+<ul class="list-unstyled">
+  <li *ngFor="let user of users">
+
+    <app-tasks-view-page
+      [tasks]="tasksByUsers[user]"
+      [header]="user + ' tasks'"
+
+    ></app-tasks-view-page>
+  </li>
+</ul>
+
+

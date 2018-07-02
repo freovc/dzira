@@ -41,7 +41,6 @@ export class TasksViewPageComponent implements OnInit {
   ngOnInit() {
   }
   editTask(task: Task) {
-    console.log('task to edit ', task);
     this.store.dispatch(new LoadSingleTask({task}));
   }
   deleteTask(task: Task) {
