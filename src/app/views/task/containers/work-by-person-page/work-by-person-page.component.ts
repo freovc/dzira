@@ -43,8 +43,11 @@ export class WorkByPersonPageComponent implements OnInit, OnDestroy {
     this.taskUpdated$ = store.select(fromTasks.getUpdatingTaskSuccess).subscribe(() => {
       this.personsTask && this.personsTask.unsubscribe();
       this.tasksByUsers = {};
+      // FIXME assign subscription, update this on every in modal task update
+      // this is hack, caused by scan/reduce observable function (clone per user task 1...n in view) need research .... move it to observable chaing
       this.personsTask = this.taskPersonSubscriptionGenerator();
     });
+    // FIXME verify if this initialisation is needed here too.
      this.personsTask =  this.taskPersonSubscriptionGenerator()
   }
   ngOnInit() {
@@ -57,6 +60,7 @@ export class WorkByPersonPageComponent implements OnInit, OnDestroy {
     console.log('unsubscribe');
     this.personsTask.unsubscribe();
   }
+  // FIXME there must be a better way
   taskPersonSubscriptionGenerator = () => this.store
   .pipe(
     select(fromTasks.getTaskWithUsers),
